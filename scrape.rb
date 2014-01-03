@@ -1,14 +1,3 @@
-#Extract the list of actress and wiki links into list
-#Save = {}
-#Loop through each actres
-  #visit each actor wikipage
-    #if link=>[http://twitter.com]
-       #Save[title] = link    
-    #else
-      #Save[title] = title
-#save_to MySQl dump
-
-
 require 'rubygems'
 require 'mechanize'
 
@@ -20,12 +9,6 @@ page.search('.column-width ul li a').each do |link|
 	#Form lookup of Name and Wiki-Link
 	actress[link['title']] = "http://en.wikipedia.org" + link['href']
 end
-
-#Function
-# -Parse page
-# -Find twitterlink
-# -return 
-# Open file
 
 
 def parse_find_twitter(actor)
