@@ -2,10 +2,10 @@ require 'rubygems'
 require 'mechanize'
 
 agent = Mechanize.new
-#Load pages list to page 
+# Load pages list to page 
 page = agent.get('http://en.wikipedia.org/wiki/List_of_American_film_actresses')
 
-#Lookup table
+# Lookup table
 actress = {}
 
 page.search('.column-width ul li a').each do |link|
@@ -13,7 +13,7 @@ page.search('.column-width ul li a').each do |link|
 	actress[link['title']] = "http://en.wikipedia.org" + link['href']
 end
 
-
+# Parse each actress page and get twitter url
 def parse_find_twitter(actor_url, actor_name)
 	#open and parse page
 	bot = Mechanize.new
@@ -25,16 +25,16 @@ def parse_find_twitter(actor_url, actor_name)
 	end
 end
 
-#open a file output.csv
-target = File.open('output.csv', 'w')
+# open a file output.txt
+target = File.open('output.txt', 'w')
 count = 0
 actress.keys.each do |n|
-	puts 'Processing '+ count.to_s
+	puts 'Processed '+ n +' - ' + count.to_s
 	target.write("#{parse_find_twitter(actress[n], n)[0]} | #{parse_find_twitter(actress[n], n)[1]}\n")
 	count = count + 1
 end
 
-#Close file
+# Close file
 target.close()
 
 
