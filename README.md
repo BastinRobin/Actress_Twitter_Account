@@ -7,7 +7,9 @@ A Ruby scraper which scraps List of Hollywood Actress and their Twitter Account 
 Algorithms:
 =========
 
-* Make a Dictionary of Actress from the hompage { name: url }.
+* Make a Dictionary of Actress from the hompage { name: url }
+
+
 ```html
 page = agent.get('http://en.wikipedia.org/wiki/List_of_American_film_actresses')
 actress = {}
@@ -19,7 +21,10 @@ end
 ```
 
 * Iterate over the Actress Dictionary
-  * Visit each actress from Actress Dict Using Parse_find_twitter function
+  * Visit each actress from Actress Dict Using (Parse Find Twitter) function
+   
+  
+
 ```html
 # Parse each actress page and get twitter url
 def parse_find_twitter(actor_url, actor_name)
