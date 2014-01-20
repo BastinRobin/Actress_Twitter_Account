@@ -10,8 +10,6 @@ Algorithms:
 * Make a Dictionary of Actress from the hompage { name: url }.
 ```html
 page = agent.get('http://en.wikipedia.org/wiki/List_of_American_film_actresses')
-
-# Lookup table
 actress = {}
 
 page.search('.column-width ul li a').each do |link|
